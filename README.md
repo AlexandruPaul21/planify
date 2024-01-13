@@ -1,0 +1,3 @@
+# Planify 
+
+## Dedicated event planner
