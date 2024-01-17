@@ -1,0 +1,25 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+insert_final_newline = true
+max_line_length = 120
+trim_trailing_whitespace = true
+
+[*.java]
+indent_size = 4
+ij_kotlin_name_count_to_use_star_import = 999
+ij_kotlin_allow_trailing_comma = true
+
+[*.{js,ts}]
+indent_size = 2
+ij_typescript_enforce_trailing_comma = whenmultiline
+ij_typescript_use_double_quotes = false
+ij_typescript_spaces_within_imports = true
+ij_typescript_spaces_within_interpolation_expressions = true
+ij_typescript_spaces_within_object_literal_braces = true
+ij_typescript_space_after_unary_not = true
+
+[*.html]
+indent_size = 4
