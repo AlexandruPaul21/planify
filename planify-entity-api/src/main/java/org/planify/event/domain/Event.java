@@ -1,11 +1,6 @@
 package org.planify.event.domain;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.planify.Identifiable;
 import org.planify.service.domain.Service;
 
@@ -17,7 +12,7 @@ public class Event extends Identifiable {
     @Column(nullable = false)
     private String eventName;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Service> services;
 
     public Event() {

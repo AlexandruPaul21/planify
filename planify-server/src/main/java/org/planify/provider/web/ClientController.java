@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -25,5 +26,16 @@ public class ClientController implements ClientApi {
     @Override
     public ResponseEntity<List<ClientDto>> getClients() {
         return ResponseEntity.ok(clientService.findAll().stream().map(clientMapper::entityToDto).collect(Collectors.toList()));
+    }
+
+    @Override
+    public ResponseEntity<ClientDto> getClientById(String id) {
+        return ResponseEntity.ok(clientMapper.entityToDto(clientService.findById(UUID.fromString(id))));
+    }
+
+    @Override
+    public ResponseEntity<ClientDto> updateClient(ClientDto clientDto, String id) {
+        clientDto.setId(UUID.fromString(id));
+        return ResponseEntity.ok(clientMapper.entityToDto(clientService.save(clientDto)));
     }
 }

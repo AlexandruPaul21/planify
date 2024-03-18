@@ -10,6 +10,7 @@ public class ProviderDto implements Serializable {
     private UUID id;
     private String username;
     private String name;
+    private String email;
     private String fiscalCode;
     private String address;
     private String phoneNumber;
@@ -18,20 +19,12 @@ public class ProviderDto implements Serializable {
     private Integer rating;
     private LocalDateTime createdAt;
 
-    public ProviderDto() {
+    public String getEmail() {
+        return email;
     }
 
-    public ProviderDto(UUID id, String username, String name, String fiscalCode, String address, String phoneNumber, List<ServiceDto> offeredServices, BigInteger revenue, Integer rating, LocalDateTime createdAt) {
-        this.id = id;
-        this.username = username;
-        this.name = name;
-        this.fiscalCode = fiscalCode;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.offeredServices = offeredServices;
-        this.revenue = revenue;
-        this.rating = rating;
-        this.createdAt = createdAt;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public UUID getId() {

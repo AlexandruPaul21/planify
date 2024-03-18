@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -24,6 +25,31 @@ public class ContractController implements ContractApi {
 
     @Override
     public ResponseEntity<List<ContractDto>> getContracts() {
-        return ResponseEntity.ok(contractService.findAll().stream().map(contractMapper::entityToDto).collect(Collectors.toList()));
+        return ResponseEntity.ok(
+            contractService.findAll()
+                .stream()
+                .map(contractMapper::entityToDto)
+                .collect(Collectors.toList())
+        );
+    }
+
+    @Override
+    public ResponseEntity<List<ContractDto>> getActiveContractsForClientId(String clientId) {
+        return ResponseEntity.ok(
+            contractService.findActiveByClientId(UUID.fromString(clientId))
+                .stream()
+                .map(contractMapper::entityToDto)
+                .collect(Collectors.toList())
+        );
+    }
+
+    @Override
+    public ResponseEntity<List<ContractDto>> getPaidContractsForClientId(String clientId) {
+        return ResponseEntity.ok(
+            contractService.findPaidByClientId(UUID.fromString(clientId))
+                .stream()
+                .map(contractMapper::entityToDto)
+                .collect(Collectors.toList())
+        );
     }
 }

@@ -13,6 +13,7 @@ dependencies {
     implementation("org.springframework.data:spring-data-jpa:3.1.6")
     implementation("org.hibernate.orm:hibernate-core:6.2.6.Final")
     implementation("io.hypersistence:hypersistence-utils-hibernate-62:3.5.1")
+    implementation("org.springframework.boot:spring-boot-starter-security:3.1.5")
 }
 
 tasks.test {

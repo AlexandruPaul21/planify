@@ -1,0 +1,21 @@
+insert into contract
+(id, price, provider_approved, status, client_id, provider_id, service_id, contract_date, advance_payment, client_notes,
+ provider_notes)
+values ('e66ef8e0-b46a-4f09-ac67-924858a3e4ad', 100, true, 'PAID', 'c0c66ac8-b2ec-4515-a027-139d6c93e64a',
+        '62c0908f-b0cf-47e0-b2e0-e9e7ced28d21', 'f841bad7-d0ff-4d15-ad58-cb6e0fcf3c38', CURRENT_TIMESTAMP, 50,
+        'will pay it soon', 'invoice generated'),
+       ('bab6fb89-5bbf-40c9-94bb-8b746050eb86', 200, true, 'PAID', '41046973-13e5-43a7-9334-270c8416d94f',
+        '1ed83492-690a-48d1-926d-52451548c38a', '7c263133-b8be-45ff-b5f2-4fed92b04ad3', CURRENT_TIMESTAMP, 30,
+        'invoice paid', 'invoiced'),
+       ('b5aa2192-0c7f-4e6f-833d-20f65dc9bc1e', 150, true, 'FINISHED', 'c0c66ac8-b2ec-4515-a027-139d6c93e64a',
+        '62c0908f-b0cf-47e0-b2e0-e9e7ced28d21', 'd559416a-b93e-417a-86ec-5e4a0457c5d2', CURRENT_TIMESTAMP, 40,
+        'could have been better', ''),
+       ('3e23bd95-2bca-4434-8213-eb1bfb875a37', 400, true, 'FINISHED', '41046973-13e5-43a7-9334-270c8416d94f',
+        '1ed83492-690a-48d1-926d-52451548c38a', 'e23a9322-e0d3-4390-a77b-d10b15b5acb7', CURRENT_TIMESTAMP, 20,
+        'everything was good', ''),
+       ('01acaa7f-14e5-4154-8fa5-4fd01daac5ce', 350, true, 'STARTED', 'c0c66ac8-b2ec-4515-a027-139d6c93e64a',
+        '62c0908f-b0cf-47e0-b2e0-e9e7ced28d21', 'e23a9322-e0d3-4390-a77b-d10b15b5acb7', CURRENT_TIMESTAMP, 30,
+        'terms accepted', 'will start soon'),
+       ('08b502b3-7039-403a-93ac-f3ccb0c20637', 400, false, 'ORDERED', 'c0c66ac8-b2ec-4515-a027-139d6c93e64a',
+        '62c0908f-b0cf-47e0-b2e0-e9e7ced28d21', 'f92287cd-eadd-4c23-b312-acc79c39a910', CURRENT_TIMESTAMP, 20,
+        'initial price offer', 'please increase price, proposal 600');

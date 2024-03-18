@@ -1,16 +1,16 @@
 create table if not exists client
 (
-    id           uuid         not null
+    id           uuid                not null
         constraint client_pkey
             primary key,
-    budget       numeric(38)  not null,
-    created_at   timestamp(6) not null,
-    firstname    varchar(255) not null,
-    lastname     varchar(255) not null,
-    rating       integer      not null,
-    username     varchar(255) not null,
-    address      varchar(255) not null,
-    phone_number varchar(255) not null
+    budget       numeric(38)         not null,
+    created_at   timestamp(6)        not null,
+    firstname    varchar(255)        not null,
+    lastname     varchar(255)        not null,
+    rating       integer             not null,
+    username     varchar(255) unique not null,
+    address      varchar(255)        not null,
+    phone_number varchar(255)        not null
 );
 
 create table if not exists event
@@ -23,17 +23,17 @@ create table if not exists event
 
 create table if not exists provider
 (
-    id           uuid         not null
+    id           uuid                not null
         constraint provider_pkey
             primary key,
-    created_at   timestamp(6) not null,
-    fiscal_code  varchar(255) not null,
-    name         varchar(255) not null,
-    rating       integer      not null,
-    revenue      numeric(38)  not null,
-    username     varchar(255) not null,
-    address      varchar(255) not null,
-    phone_number varchar(255) not null
+    created_at   timestamp(6)        not null,
+    fiscal_code  varchar(255)        not null,
+    name         varchar(255)        not null,
+    rating       integer             not null,
+    revenue      numeric(38)         not null,
+    username     varchar(255) unique not null,
+    address      varchar(255)        not null,
+    phone_number varchar(255)        not null
 );
 
 create table if not exists service
@@ -55,7 +55,7 @@ create table if not exists contract
     status            varchar(255) not null
         constraint contract_status_check
             check ((status)::text = any
-                   ((array ['ORDERED'::character varying, 'STARTED'::character varying, 'FINISHED'::character varying, 'PAID'::character varying])::text[])),
+                   ((array ['ORDERED'::character varying, 'DECLINED'::character varying, 'CANCELLED'::character varying, 'STARTED'::character varying, 'FINISHED'::character varying, 'PAID'::character varying])::text[])),
     client_id         uuid         not null
         constraint contract_client_fkey
             references client,
