@@ -7,4 +7,6 @@ import org.planify.service.domain.Service;
 @Mapper(componentModel = "spring")
 public interface ServiceMapper {
     ServiceDto entityToDto(Service service);
+
+    Service dtoToEntity(ServiceDto serviceDto);
 }

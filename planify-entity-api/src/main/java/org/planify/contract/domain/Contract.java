@@ -1,19 +1,18 @@
 package org.planify.contract.domain;
 
-import io.hypersistence.utils.hibernate.type.basic.PostgreSQLEnumType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.Type;
 import org.planify.Identifiable;
 import org.planify.client.domain.Client;
 import org.planify.provider.domain.Provider;
 import org.planify.service.domain.Service;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "contract")
@@ -37,7 +36,51 @@ public class Contract extends Identifiable {
     @Column(nullable = false)
     private BigInteger price;
 
+    @Column(nullable = false)
+    private BigInteger advancePayment;
+
+    @Column(nullable = false)
+    private String providerNotes;
+
+    @Column(nullable = false)
+    private String clientNotes;
+
+    @Column(nullable = false)
+    private LocalDateTime contractDate;
+
     public Contract() {
+    }
+
+    public BigInteger getAdvancePayment() {
+        return advancePayment;
+    }
+
+    public void setAdvancePayment(BigInteger advancePayment) {
+        this.advancePayment = advancePayment;
+    }
+
+    public String getProviderNotes() {
+        return providerNotes;
+    }
+
+    public void setProviderNotes(String providerNotes) {
+        this.providerNotes = providerNotes;
+    }
+
+    public String getClientNotes() {
+        return clientNotes;
+    }
+
+    public void setClientNotes(String clientNotes) {
+        this.clientNotes = clientNotes;
+    }
+
+    public LocalDateTime getContractDate() {
+        return contractDate;
+    }
+
+    public void setContractDate(LocalDateTime contractDate) {
+        this.contractDate = contractDate;
     }
 
     public Client getClient() {

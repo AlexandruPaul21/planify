@@ -7,4 +7,6 @@ import org.planify.provider.domain.Provider;
 @Mapper(componentModel = "spring")
 public interface ProviderMapper {
     ProviderDto entityToDto(Provider provider);
+
+    Provider dtoToEntity(ProviderDto providerDto);
 }

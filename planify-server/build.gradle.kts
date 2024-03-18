@@ -29,6 +29,11 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.flywaydb:flyway-core:9.22.3")
+    implementation("org.springframework.boot:spring-boot-starter-security:3.1.5")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.5")
+    implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 }
 
 tasks.test {

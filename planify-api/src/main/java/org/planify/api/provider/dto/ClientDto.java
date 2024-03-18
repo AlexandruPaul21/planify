@@ -1,7 +1,5 @@
 package org.planify.api.provider.dto;
 
-import org.planify.contract.domain.Contract;
-
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,26 +10,27 @@ public class ClientDto {
     private String username;
     private String firstname;
     private String lastname;
+    private String email;
     private BigInteger budget;
     private String address;
     private String phoneNumber;
-    private List<ContractDto> contracts;
     private Integer rating;
     private LocalDateTime createdAt;
 
-    public ClientDto() {
+    public String getEmail() {
+        return email;
     }
 
-    public ClientDto(String username, String firstname, String lastname, BigInteger budget, String address, String phoneNumber, List<ContractDto> contracts, Integer rating, LocalDateTime createdAt) {
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.budget = budget;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.contracts = contracts;
-        this.rating = rating;
-        this.createdAt = createdAt;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -80,14 +79,6 @@ public class ClientDto {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public List<ContractDto> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(List<ContractDto> contracts) {
-        this.contracts = contracts;
     }
 
     public Integer getRating() {

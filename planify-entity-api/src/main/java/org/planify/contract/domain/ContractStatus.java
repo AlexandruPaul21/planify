@@ -1,5 +1,5 @@
 package org.planify.contract.domain;
 
 public enum ContractStatus {
-    ORDERED, STARTED, FINISHED, PAID
+    ORDERED, DECLINED, CANCELLED, STARTED, FINISHED, PAID
 }
